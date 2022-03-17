@@ -1,0 +1,11 @@
+{
+  "name": "carbonio-messaging-db",
+  "description": "Carbonio messaging DB sidecar",
+  "build_dir": "/tmp/",
+  "output": "artifacts",
+  "projects": [
+    {
+      "name": "package"
+    }
+  ]
+}

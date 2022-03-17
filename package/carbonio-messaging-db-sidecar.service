@@ -1,0 +1,23 @@
+[Unit]
+Description=Carbonio messaging database sidecar
+Documentation=https://docs.zextras.com/
+Requires=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/consul connect envoy \
+    -token-file /etc/carbonio/messaging-db/service-discover/token \
+    -admin-bind localhost:0 \
+    -sidecar-for carbonio-messaging-db
+Restart=on-failure
+RestartSec=15
+User=carbonio-messaging-db
+KillMode=process
+KillSignal=SIGKILL
+LimitNOFILE=65536
+TimeoutSec=120
+TimeoutStopSec=120
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,26 @@
+{
+  "key_prefix": [
+    {
+      "carbonio-messaging/": {
+        "policy": "write"
+      }
+    }
+  ],
+  "node_prefix": [
+    {
+      "": {
+        "policy": "read"
+      }
+    }
+  ],
+  "service": [
+    {
+      "carbonio-messaging-db": {
+        "policy": "write"
+      },
+      "carbonio-messaging-db-sidecar-proxy": {
+        "policy": "write"
+      }
+    }
+  ]
+}

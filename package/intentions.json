@@ -1,0 +1,10 @@
+{
+  "Kind": "service-intentions",
+  "Name": "carbonio-messaging-db",
+  "Sources": [
+    {
+      "Name": "carbonio-messaging",
+      "Action": "allow"
+    }
+  ]
+}
