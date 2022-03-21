@@ -3,7 +3,11 @@
   "Name": "carbonio-messaging-db",
   "Sources": [
     {
-      "Name": "carbonio-messaging",
+      "Name": "carbonio-messaging-http",
+      "Action": "allow"
+    },
+    {
+      "Name": "carbonio-messaging-xmpp",
       "Action": "allow"
     }
   ]
