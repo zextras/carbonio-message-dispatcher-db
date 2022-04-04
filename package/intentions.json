@@ -1,13 +1,13 @@
 {
   "Kind": "service-intentions",
-  "Name": "carbonio-messaging-db",
+  "Name": "carbonio-chats-messaging-db",
   "Sources": [
     {
-      "Name": "carbonio-messaging-http",
+      "Name": "carbonio-chats-messaging-http",
       "Action": "allow"
     },
     {
-      "Name": "carbonio-messaging-xmpp",
+      "Name": "carbonio-chats-messaging-xmpp",
       "Action": "allow"
     }
   ]

@@ -11,6 +11,6 @@ services {
       }
     }
   }
-  name = "carbonio-messaging-db"
+  name = "carbonio-chats-messaging-db"
   port = 5432
 }

@@ -1,6 +1,6 @@
-# Carbonio Messaging DB
+# Carbonio Chats Messaging DB
 
-This repository includes the means to build the carbonio-messaging-db package,
+This repository includes the means to build the carbonio-chats-messaging-db package,
 which is simply a consul wrapper for whichever db will be underneath.
 
 ## 🔧 How to Build

@@ -2,12 +2,12 @@ targets=(
   "centos"
   "ubuntu"
 )
-pkgname="carbonio-messaging-db"
+pkgname="carbonio-chats-messaging-db"
 pkgver="0.1.0"
 pkgrel="1"
-pkgdesc="Carbonio messaging DB sidecar"
+pkgdesc="Carbonio chats messaging DB sidecar"
 pkgdesclong=(
-  "Carbonio messaging DB sidecar"
+  "Carbonio chats messaging DB sidecar"
 )
 maintainer="Zextras <packages@zextras.com>"
 url="https://zextras.com"
@@ -22,14 +22,14 @@ depends=(
   "jq"
 )
 backup=(
-  "etc/zextras/service-discover/carbonio-messaging-db.hcl"
+  "etc/zextras/service-discover/carbonio-chats-messaging-db.hcl"
 )
 sources=(
-  "carbonio-messaging-db"
-  "carbonio-messaging-db.hcl"
-  "carbonio-messaging-db.sh"
-  "carbonio-messaging-db-bootstrap"
-  "carbonio-messaging-db-sidecar.service"
+  "carbonio-chats-messaging-db"
+  "carbonio-chats-messaging-db.hcl"
+  "carbonio-chats-messaging-db.sh"
+  "carbonio-chats-messaging-db-bootstrap"
+  "carbonio-chats-messaging-db-sidecar.service"
   "intentions.json"
   "policies.json"
   "service-protocol.json"
@@ -47,29 +47,29 @@ hashsums=(
 
 package() {
   cd "${srcdir}"
-  install -Dm 755 carbonio-messaging-db "${pkgdir}/usr/bin/carbonio-messaging-db"
-  install -Dm 644 carbonio-messaging-db-sidecar.service "${pkgdir}/lib/systemd/system/carbonio-messaging-db-sidecar.service"
-  install -Dm 644 carbonio-messaging-db.hcl "${pkgdir}/etc/zextras/service-discover/carbonio-messaging-db.hcl"
-  install -Dm 755 carbonio-messaging-db-bootstrap "${pkgdir}/usr/bin/carbonio-messaging-db-bootstrap"
-  install -Dm 644 carbonio-messaging-db.sh "${pkgdir}/etc/zextras/pending-setups.d/carbonio-messaging-db-setup.sh"
-  install -Dm 644 intentions.json "${pkgdir}/etc/carbonio/messaging-db/service-discover/intentions.json"
-  install -Dm 644 policies.json "${pkgdir}/etc/carbonio/messaging-db/service-discover/policies.json"
-  install -Dm 644 service-protocol.json "${pkgdir}/etc/carbonio/messaging-db/service-discover/service-protocol.json"
+  install -Dm 755 carbonio-chats-messaging-db "${pkgdir}/usr/bin/carbonio-chats-messaging-db"
+  install -Dm 644 carbonio-chats-messaging-db-sidecar.service "${pkgdir}/lib/systemd/system/carbonio-chats-messaging-db-sidecar.service"
+  install -Dm 644 carbonio-chats-messaging-db.hcl "${pkgdir}/etc/zextras/service-discover/carbonio-chats-messaging-db.hcl"
+  install -Dm 755 carbonio-chats-messaging-db-bootstrap "${pkgdir}/usr/bin/carbonio-chats-messaging-db-bootstrap"
+  install -Dm 644 carbonio-chats-messaging-db.sh "${pkgdir}/etc/zextras/pending-setups.d/carbonio-chats-messaging-db-setup.sh"
+  install -Dm 644 intentions.json "${pkgdir}/etc/carbonio/chats-messaging-db/service-discover/intentions.json"
+  install -Dm 644 policies.json "${pkgdir}/etc/carbonio/chats-messaging-db/service-discover/policies.json"
+  install -Dm 644 service-protocol.json "${pkgdir}/etc/carbonio/chats-messaging-db/service-discover/service-protocol.json"
 }
 
 postinst() {
-  getent group 'carbonio-messaging-db' >/dev/null ||
-    groupadd -r 'carbonio-messaging-db'
-  getent passwd 'carbonio-messaging-db' >/dev/null ||
-    useradd -r -M -g 'carbonio-messaging-db' -s /sbin/nologin 'carbonio-messaging-db'
+  getent group 'carbonio-chats-messaging-db' >/dev/null ||
+    groupadd -r 'carbonio-chats-messaging-db'
+  getent passwd 'carbonio-chats-messaging-db' >/dev/null ||
+    useradd -r -M -g 'carbonio-chats-messaging-db' -s /sbin/nologin 'carbonio-chats-messaging-db'
 
   if [ -d /run/systemd/system ]; then
     systemctl daemon-reload >/dev/null 2>&1 || :
-    systemctl enable carbonio-messaging-db-sidecar.service >/dev/null 2>&1 || :
+    systemctl enable carbonio-chats-messaging-db-sidecar.service >/dev/null 2>&1 || :
   fi
 
   echo "======================================================"
-  echo "Carbonio messaging DB installed successfully!"
+  echo "Carbonio chats messaging DB installed successfully!"
   echo "You must run pending-setups to configure it correctly."
   echo "======================================================"
 }
@@ -77,13 +77,13 @@ postinst() {
 
 prerm() {
   if [ -d /run/systemd/system ]; then
-    systemctl --no-reload disable carbonio-messaging-db-sidecar.service >/dev/null 2>&1 || :
-    systemctl stop carbonio-messaging-db-sidecar.service >/dev/null 2>&1 || :
+    systemctl --no-reload disable carbonio-chats-messaging-db-sidecar.service >/dev/null 2>&1 || :
+    systemctl stop carbonio-chats-messaging-db-sidecar.service >/dev/null 2>&1 || :
   fi
 }
 
 postrm() {
-rm -f /etc/carbonio/messaging/service-discover/token
+rm -f /etc/carbonio/chats-messaging-db/service-discover/token
   if [ -d /run/systemd/system ]; then
     systemctl daemon-reload >/dev/null 2>&1 || :
   fi

@@ -123,6 +123,6 @@ void sendFailureEmail(String step) {
     ${commitInfo}<br /><br />
     Check the failing build at the <a href=\"${BUILD_URL}\">following link</a><br />
   """,
-  subject: "[MESSAGING DB TRUNK FAILURE] Trunk ${step} step failure",
+  subject: "[CHATS MESSAGING DB TRUNK FAILURE] Trunk ${step} step failure",
   to: FAILURE_EMAIL_RECIPIENTS
 }

@@ -1,7 +1,7 @@
 {
   "key_prefix": [
     {
-      "carbonio-messaging/": {
+      "carbonio-chats-messaging/": {
         "policy": "write"
       }
     }
@@ -15,10 +15,10 @@
   ],
   "service": [
     {
-      "carbonio-messaging-db": {
+      "carbonio-chats-messaging-db": {
         "policy": "write"
       },
-      "carbonio-messaging-db-sidecar-proxy": {
+      "carbonio-chats-messaging-db-sidecar-proxy": {
         "policy": "write"
       }
     }
