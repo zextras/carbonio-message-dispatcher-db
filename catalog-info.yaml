@@ -1,0 +1,23 @@
+# SPDX-FileCopyrightText: 2023 Zextras <https://www.zextras.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-only
+
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: carbonio-message-dispatcher-db
+  title: Carbonio Message Dispatcher DB service
+  description: |
+    Service containing scripts to initialise the Carbonio Message dispatcher database and it allows
+    the carbonio-message-dispatcher-messaging backend to connect to the database via the service-discover.
+  tags:
+    - bash
+    - envoy
+    - backend
+  links:
+    - url: https://github.com/Zextras/carbonio-message-dispatcher-messaging-db/blob/main/README.md
+      title: README
+spec:
+  type: service
+  lifecycle: production
+  owner: smoky-beans
