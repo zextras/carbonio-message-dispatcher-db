@@ -9,13 +9,13 @@ metadata:
   title: Carbonio Message Dispatcher DB service
   description: |
     Service containing scripts to initialise the Carbonio Message dispatcher database and it allows
-    the carbonio-message-dispatcher-messaging backend to connect to the database via the service-discover.
+    the carbonio-message-dispatcher backend to connect to the database via the service-discover.
   tags:
     - bash
     - envoy
     - backend
   links:
-    - url: https://github.com/Zextras/carbonio-message-dispatcher-messaging-db/blob/main/README.md
+    - url: https://github.com/Zextras/carbonio-message-dispatcher-db/blob/main/README.md
       title: README
 spec:
   type: service
