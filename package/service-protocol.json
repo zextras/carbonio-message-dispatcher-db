@@ -1,5 +1,5 @@
 {
   "kind": "service-defaults",
-  "name": "carbonio-chats-messaging-db",
+  "name": "carbonio-message-dispatcher-db",
   "protocol": "tcp"
 }

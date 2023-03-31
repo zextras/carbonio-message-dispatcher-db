@@ -1,7 +1,7 @@
-# Carbonio Chats Messaging DB
+# Carbonio Message Dispatcher DB
 
-This repository includes the means to build the carbonio-chats-messaging-db package,
-which is simply a consul wrapper for whichever db will be underneath.
+This repository includes the means to build the carbonio-message-dispatcher-db 
+package, which is simply a consul wrapper for whichever db will be underneath.
 
 ## 🔧 How to Build
 

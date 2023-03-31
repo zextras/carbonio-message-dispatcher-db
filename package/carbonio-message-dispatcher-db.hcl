@@ -7,6 +7,6 @@ services {
   connect {
     sidecar_service {}
   }
-  name = "carbonio-chats-messaging-db"
+  name = "carbonio-message-dispatcher-db"
   port = 5432
 }
