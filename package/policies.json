@@ -1,8 +1,11 @@
 {
   "key_prefix": [
     {
-      "carbonio-message-dispatcher/": {
+      "carbonio-message-dispatcher-db/": {
         "policy": "write"
+      },
+      "carbonio-message-dispatcher/": {
+        "policy": "read"
       }
     }
   ],
