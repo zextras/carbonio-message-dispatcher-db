@@ -53,7 +53,7 @@ if [[ ! -f "/etc/carbonio/message-dispatcher-db/service-discover/token" ]]; then
     # Create the token
     consul acl token create -format json -policy-name "${POLICY_NAME}" -description "Token for carbonio-message-dispatcher-db/$(hostname -A)" |
       jq -r '.SecretID' > /etc/carbonio/message-dispatcher-db/service-discover/token;
-    chown carbonio-message-dispatcher-db:carbonio-message-dispatcherdb /etc/carbonio/message-dispatcher-db/service-discover/token
+    chown carbonio-message-dispatcher-db:carbonio-message-dispatcher-db /etc/carbonio/message-dispatcher-db/service-discover/token
     chmod 0600 /etc/carbonio/message-dispatcher-db/service-discover/token
 fi
 
