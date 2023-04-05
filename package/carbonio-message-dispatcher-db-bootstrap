@@ -7,9 +7,8 @@
 # This script just create credentials, write them in consul and initialize an empty schema
 
 MAIN_SERVICE_NAME="carbonio-message-dispatcher-db"
-DB_SERVICE_NAME="carbonio-message-dispatcher-db"
-DATABASE_NAME="${DB_SERVICE_NAME}"
-DATABASE_USERNAME="${DB_SERVICE_NAME}"
+DATABASE_NAME="${MAIN_SERVICE_NAME}"
+DATABASE_USERNAME="${MAIN_SERVICE_NAME}"
 DEFAULT_DB_NAME="postgres"
 DATABASE_PASSWORD="" #defined later
 CONSUL_TOKEN_PATH="/etc/carbonio/message-dispatcher-db/service-discover/token"
