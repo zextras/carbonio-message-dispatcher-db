@@ -20,8 +20,8 @@ function build-ubuntu-artifact() {
   else
     docker run \
       --rm --entrypoint "" \
-      -v "$(pwd)":/tmp/dispatcher-db \
-      registry.dev.zextras.com/jenkins/pacur/ubuntu-20.04:v1 /bin/bash -c 'pacur build ubuntu /tmp/dispatcher-db'
+      -v "$(pwd)":/tmp/message-dispatcher-db \
+      registry.dev.zextras.com/jenkins/pacur/ubuntu-20.04:v1 /bin/bash -c 'pacur build ubuntu /tmp/message-dispatcher-db'
   fi
 }
 
@@ -31,8 +31,8 @@ function build-rocky-8-artifact() {
   else
     docker run \
       --rm --entrypoint "" \
-      -v "$(pwd)":/tmp/dispatcher-db \
-      registry.dev.zextras.com/jenkins/pacur/rocky-8:v1 /bin/bash -c 'pacur build rocky-8 /tmp/dispatcher-db'
+      -v "$(pwd)":/tmp/message-dispatcher-db \
+      registry.dev.zextras.com/jenkins/pacur/rocky-8:v1 /bin/bash -c 'pacur build rocky-8 /tmp/message-dispatcher-db'
   fi
 }
 

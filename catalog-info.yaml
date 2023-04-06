@@ -8,7 +8,7 @@ metadata:
   name: carbonio-message-dispatcher-db
   title: Carbonio Message Dispatcher DB service
   description: |
-    Service containing scripts to initialise the Carbonio Message dispatcher database and it allows
+    Service containing scripts to initialise the Carbonio Message Dispatcher database and it allows
     the carbonio-message-dispatcher backend to connect to the database via the service-discover.
   tags:
     - bash

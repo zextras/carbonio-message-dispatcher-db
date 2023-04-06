@@ -5,9 +5,9 @@ targets=(
 pkgname="carbonio-message-dispatcher-db"
 pkgver="0.1.0"
 pkgrel="1"
-pkgdesc="Carbonio message dispatcher DB sidecar"
+pkgdesc="Carbonio Message Dispatcher DB sidecar"
 pkgdesclong=(
-  "Carbonio message dispatcher DB sidecar"
+  "Carbonio Message Dispatcher DB sidecar"
 )
 maintainer="Zextras <packages@zextras.com>"
 url="https://zextras.com"
@@ -69,7 +69,7 @@ postinst() {
   fi
 
   echo "======================================================"
-  echo "Carbonio message dispatcher DB installed successfully!"
+  echo "Carbonio Message Dispatcher DB installed successfully!"
   echo "You must run pending-setups to configure it correctly."
   echo "======================================================"
 }

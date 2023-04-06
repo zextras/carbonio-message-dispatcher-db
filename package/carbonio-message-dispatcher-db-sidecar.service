@@ -1,5 +1,5 @@
 [Unit]
-Description=Carbonio message dispatcher database sidecar
+Description=Carbonio Message Dispatcher database sidecar
 Documentation=https://docs.zextras.com/
 Requires=network-online.target
 After=network-online.target

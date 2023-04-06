@@ -15,7 +15,7 @@ either docker or pacur installed locally.
 
 # License 📚
 
-Message dispatcher database service for Zextras Carbonio.
+Message Dispatcher database service for Zextras Carbonio.
 
 Released under the AGPL-3.0-only license as specified here: [COPYING](COPYING).
 
