@@ -5,17 +5,17 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: carbonio-chats-messaging-db
-  title: Carbonio Chats Messaging DB service
+  name: carbonio-message-dispatcher-db
+  title: Carbonio Message Dispatcher DB service
   description: |
-    Service containing scripts to initialise the Carbonio Chats Messaging database and it allows
-    the carbonio-chats-messaging backend to connect to the database via the service-discover.
+    Service containing scripts to initialise the Carbonio Message Dispatcher database and it allows
+    the carbonio-message-dispatcher backend to connect to the database via the service-discover.
   tags:
     - bash
     - envoy
     - backend
   links:
-    - url: https://github.com/Zextras/carbonio-chats-messaging-db/blob/main/README.md
+    - url: https://github.com/Zextras/carbonio-message-dispatcher-db/blob/main/README.md
       title: README
 spec:
   type: service

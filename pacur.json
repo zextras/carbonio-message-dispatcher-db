@@ -1,6 +1,6 @@
 {
-  "name": "carbonio-chats-messaging-db",
-  "description": "Carbonio chats messaging DB sidecar",
+  "name": "carbonio-message-dispatcher-db",
+  "description": "Carbonio Message Dispatcher DB sidecar",
   "build_dir": "/tmp/",
   "output": "artifacts",
   "projects": [

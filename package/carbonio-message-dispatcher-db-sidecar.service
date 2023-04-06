@@ -1,5 +1,5 @@
 [Unit]
-Description=Carbonio chats messaging database sidecar
+Description=Carbonio Message Dispatcher database sidecar
 Documentation=https://docs.zextras.com/
 Requires=network-online.target
 After=network-online.target
@@ -7,12 +7,12 @@ After=network-online.target
 [Service]
 Type=simple
 ExecStart=/usr/bin/consul connect envoy \
-    -token-file /etc/carbonio/chats-messaging-db/service-discover/token \
+    -token-file /etc/carbonio/message-dispatcher-db/service-discover/token \
     -admin-bind localhost:0 \
-    -sidecar-for carbonio-chats-messaging-db
+    -sidecar-for carbonio-message-dispatcher-db
 Restart=on-failure
 RestartSec=15
-User=carbonio-chats-messaging-db
+User=carbonio-message-dispatcher-db
 KillMode=process
 KillSignal=SIGKILL
 LimitNOFILE=65536
