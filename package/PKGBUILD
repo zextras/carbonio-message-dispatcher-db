@@ -1,19 +1,12 @@
-targets=(
-  "centos"
-  "ubuntu"
-)
 pkgname="carbonio-message-dispatcher-db"
 pkgver="0.1.0"
 pkgrel="1"
 pkgdesc="Carbonio Message Dispatcher DB sidecar"
-pkgdesclong=(
-  "Carbonio Message Dispatcher DB sidecar"
-)
 maintainer="Zextras <packages@zextras.com>"
 url="https://zextras.com"
 section="mail"
 priority="optional"
-arch="amd64"
+arch=('x86_64')
 license=("spdx:AGPL-3.0-only")
 depends=(
   "service-discover"
@@ -24,7 +17,7 @@ depends=(
 backup=(
   "etc/zextras/service-discover/carbonio-message-dispatcher-db.hcl"
 )
-sources=(
+source=(
   "carbonio-message-dispatcher-db"
   "carbonio-message-dispatcher-db.hcl"
   "carbonio-message-dispatcher-db.sh"
@@ -34,7 +27,7 @@ sources=(
   "policies.json"
   "service-protocol.json"
 )
-hashsums=(
+sha256sums=(
   "skip"
   "skip"
   "skip"
@@ -74,7 +67,6 @@ postinst() {
   echo "======================================================"
 }
 
-
 prerm() {
   if [ -d /run/systemd/system ]; then
     systemctl --no-reload disable carbonio-message-dispatcher-db-sidecar.service >/dev/null 2>&1 || :
@@ -83,7 +75,7 @@ prerm() {
 }
 
 postrm() {
-rm -f /etc/carbonio/message-dispatcher-db/service-discover/token
+  rm -f /etc/carbonio/message-dispatcher-db/service-discover/token
   if [ -d /run/systemd/system ]; then
     systemctl daemon-reload >/dev/null 2>&1 || :
   fi
