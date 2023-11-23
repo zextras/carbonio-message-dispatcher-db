@@ -6,9 +6,6 @@ services {
   }
   connect {
     sidecar_service {
-      proxy {
-        local_service_address = "127.78.0.103"
-      }
     }
   }
   name = "carbonio-message-dispatcher-db"

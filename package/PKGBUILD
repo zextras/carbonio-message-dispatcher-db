@@ -1,5 +1,5 @@
 pkgname="carbonio-message-dispatcher-db"
-pkgver="0.1.0"
+pkgver="0.2.0"
 pkgrel="1"
 pkgdesc="Carbonio Message Dispatcher DB sidecar"
 maintainer="Zextras <packages@zextras.com>"
