@@ -1,5 +1,5 @@
 pkgname="carbonio-message-dispatcher-db"
-pkgver="0.1.0"
+pkgver="0.2.0"
 pkgrel="1"
 pkgdesc="Carbonio Message Dispatcher DB sidecar"
 maintainer="Zextras <packages@zextras.com>"
@@ -7,7 +7,7 @@ url="https://zextras.com"
 section="mail"
 priority="optional"
 arch=('x86_64')
-license=("spdx:AGPL-3.0-only")
+license=("AGPL-3.0-only")
 depends=(
   "service-discover"
   "pending-setups"
@@ -28,14 +28,14 @@ source=(
   "service-protocol.json"
 )
 sha256sums=(
-  "skip"
-  "skip"
-  "skip"
-  "skip"
-  "skip"
-  "skip"
-  "skip"
-  "skip"
+  "f292354b9f8743a3a7ee2705a632e5da77b10dfdf4e0d81d1b675c8a3d42fbb0"
+  "02001909736e6a085fcf55af878122c13cd1d921beb1533ace72e863f49fdf15"
+  "9d8cc34f1ae2ad2405c0f713940898c80ab050924cd5d098ec0c51183e0552dd"
+  "780c56395d53f7bdfeafc2f611de9ea954b1b3d10f6510bd05de67de25f26615"
+  "5aa453e9c1e99cd4f3c872d3489594bc7ab55db9d8b386447dac92b0ceb47856"
+  "8cb77fc16d4e3bc3daadef0603e17f2824dac6e5b8d6a0d9595589ebd909ec8e"
+  "eb970a52a7f9b7876ef272f69abfee978579c8808d5f77b20aeb3596b81b6d46"
+  "41cab41c2e651009b2a608c06d259c1907866ab1318bb9f48d6ecff5eb51446f"
 )
 
 package() {
