@@ -7,7 +7,6 @@ PartOf=carbonio.target
 
 [Service]
 User=carbonio-message-dispatcher-db
-Type=simple
 ExecStart=/usr/bin/consul connect envoy \
     -token-file /etc/carbonio/message-dispatcher-db/service-discover/token \
     -admin-bind localhost:0 \
