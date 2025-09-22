@@ -39,15 +39,22 @@ sha256sums=(
 )
 
 package() {
-  cd "${srcdir}"
-  install -Dm 755 carbonio-message-dispatcher-db "${pkgdir}/usr/bin/carbonio-message-dispatcher-db"
-  install -Dm 644 carbonio-message-dispatcher-db-sidecar.service "${pkgdir}/lib/systemd/system/carbonio-message-dispatcher-db-sidecar.service"
-  install -Dm 644 carbonio-message-dispatcher-db.hcl "${pkgdir}/etc/zextras/service-discover/carbonio-message-dispatcher-db.hcl"
-  install -Dm 755 carbonio-message-dispatcher-db-bootstrap "${pkgdir}/usr/bin/carbonio-message-dispatcher-db-bootstrap"
-  install -Dm 644 carbonio-message-dispatcher-db.sh "${pkgdir}/etc/zextras/pending-setups.d/carbonio-message-dispatcher-db-setup.sh"
-  install -Dm 644 intentions.json "${pkgdir}/etc/carbonio/message-dispatcher-db/service-discover/intentions.json"
-  install -Dm 644 policies.json "${pkgdir}/etc/carbonio/message-dispatcher-db/service-discover/policies.json"
-  install -Dm 644 service-protocol.json "${pkgdir}/etc/carbonio/message-dispatcher-db/service-discover/service-protocol.json"
+  install -Dm755 "${srcdir}/carbonio-message-dispatcher-db" \
+    "${pkgdir}/usr/bin/carbonio-message-dispatcher-db"
+  install -Dm644 "${srcdir}/carbonio-message-dispatcher-db-sidecar.service" \
+    "${pkgdir}/lib/systemd/system/carbonio-message-dispatcher-db-sidecar.service"
+  install -Dm644 "${srcdir}/carbonio-message-dispatcher-db.hcl" \
+    "${pkgdir}/etc/zextras/service-discover/carbonio-message-dispatcher-db.hcl"
+  install -Dm755 "${srcdir}/carbonio-message-dispatcher-db-bootstrap" \
+    "${pkgdir}/usr/bin/carbonio-message-dispatcher-db-bootstrap"
+  install -Dm644 "${srcdir}/carbonio-message-dispatcher-db.sh" \
+    "${pkgdir}/etc/zextras/pending-setups.d/carbonio-message-dispatcher-db-setup.sh"
+  install -Dm644 "${srcdir}/intentions.json" \
+    "${pkgdir}/etc/carbonio/message-dispatcher-db/service-discover/intentions.json"
+  install -Dm644 "${srcdir}/policies.json" \
+    "${pkgdir}/etc/carbonio/message-dispatcher-db/service-discover/policies.json"
+  install -Dm644 "${srcdir}/service-protocol.json" \
+    "${pkgdir}/etc/carbonio/message-dispatcher-db/service-discover/service-protocol.json"
 }
 
 postinst() {
