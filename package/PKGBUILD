@@ -23,6 +23,7 @@ source=(
   "carbonio-message-dispatcher-db.hcl"
   "carbonio-message-dispatcher-db-bootstrap"
   "carbonio-message-dispatcher-db-sidecar.service"
+  "carbonio-message-dispatcher-db-sidecar-legacy.service"
   "intentions.json"
   "policies.json"
   "service-protocol.json"
@@ -33,18 +34,17 @@ sha256sums=(
   '02001909736e6a085fcf55af878122c13cd1d921beb1533ace72e863f49fdf15'
   '584de9b775bee8762c0a22629aa854b737d9058e2d68bc85cd9420e376644ffa'
   '9d65ab8910fa6dfb4ffd384f99c5c67de5bd06722e72da1769604c5171d36edb'
+  'SKIP'
   '2e3e503150ca300eb7c1aaef3d1822707d16f9c9e6c1f498c451259d48343f94'
   'eb970a52a7f9b7876ef272f69abfee978579c8808d5f77b20aeb3596b81b6d46'
   '41cab41c2e651009b2a608c06d259c1907866ab1318bb9f48d6ecff5eb51446f'
 )
 
-package() {
+_package_common() {
   install -Dm644 "${srcdir}/111-carbonio-message-dispatcher-db-setup.sh" \
     "${pkgdir}/etc/zextras/pending-setups.d/111-carbonio-message-dispatcher-db-setup.sh"
   install -Dm755 "${srcdir}/carbonio-message-dispatcher-db" \
     "${pkgdir}/usr/bin/carbonio-message-dispatcher-db"
-  install -Dm644 "${srcdir}/carbonio-message-dispatcher-db-sidecar.service" \
-    "${pkgdir}/lib/systemd/system/carbonio-message-dispatcher-db-sidecar.service"
   install -Dm644 "${srcdir}/carbonio-message-dispatcher-db.hcl" \
     "${pkgdir}/etc/zextras/service-discover/carbonio-message-dispatcher-db.hcl"
   install -Dm755 "${srcdir}/carbonio-message-dispatcher-db-bootstrap" \
@@ -56,6 +56,22 @@ package() {
   install -Dm644 "${srcdir}/service-protocol.json" \
     "${pkgdir}/etc/carbonio/message-dispatcher-db/service-discover/service-protocol.json"
 }
+
+_package_systemd() {
+  _package_common
+  install -Dm644 "${srcdir}/carbonio-message-dispatcher-db-sidecar.service" \
+    "${pkgdir}/lib/systemd/system/carbonio-message-dispatcher-db-sidecar.service"
+}
+
+_package_legacy() {
+  _package_common
+  install -Dm644 "${srcdir}/carbonio-message-dispatcher-db-sidecar-legacy.service" \
+    "${pkgdir}/lib/systemd/system/carbonio-message-dispatcher-db-sidecar.service"
+}
+
+package() { _package_systemd; }
+package__rocky_8() { _package_legacy; }
+package__ubuntu_jammy() { _package_legacy; }
 
 postinst() {
   getent group 'carbonio-message-dispatcher-db' >/dev/null ||
