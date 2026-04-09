@@ -57,6 +57,17 @@ pipeline {
             }
         }
 
+        stage('Build container images') {
+            steps {
+                buildAndPublishDockerImage(
+                        projectName: 'carbonio-message-dispatcher-db-sidecar',
+                        dockerfile: 'docker/sidecar/Dockerfile',
+                        imageTitle: 'Carbonio Message Dispatcher DB Sidecar',
+                        imageDescription: 'Envoy Sidecar for Carbonio Message Dispatcher DB'
+                )
+            }
+        }
+
         stage('Build deb/rpm') {
             steps {
                 script {
