@@ -1,3 +1,9 @@
+## [0.3.0](https://github.com/zextras/carbonio-message-dispatcher-db/compare/v0.2.5...v0.3.0) (2026-05-05)
+
+### Features
+
+* systemd hardening and service-discover.target orchestration ([#43](https://github.com/zextras/carbonio-message-dispatcher-db/issues/43)) ([5f25e16](https://github.com/zextras/carbonio-message-dispatcher-db/commit/5f25e16d52959d51847550abef8e5d58a87ed441))
+
 ## [0.2.5](https://github.com/zextras/carbonio-message-dispatcher-db/compare/v0.2.4...v0.2.5) (2026-02-23)
 
 ## [](https://github.com/zextras/carbonio-message-dispatcher-db/compare/v0.2.4...v) (2026-01-08)
