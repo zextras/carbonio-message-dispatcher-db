@@ -74,6 +74,7 @@ pipeline {
                     buildPackages([
                         pkgbuildPath: 'package/PKGBUILD',
                         buildStageConfig: [
+                            buildFlags: ' -ds ',
                             rockySinglePkg: true,
                             ubuntuSinglePkg: true
                         ]
