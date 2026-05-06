@@ -1,3 +1,9 @@
+## [0.3.1](https://github.com/zextras/carbonio-message-dispatcher-db/compare/v0.3.0...v0.3.1) (2026-05-06)
+
+### Bug Fixes
+
+* restore buildPackages() to fix pkgrel on tag builds ([#51](https://github.com/zextras/carbonio-message-dispatcher-db/issues/51)) ([4de49cc](https://github.com/zextras/carbonio-message-dispatcher-db/commit/4de49cc41d2f5d8a79856ccbb1a3876e2a93ed77))
+
 ## [0.3.0](https://github.com/zextras/carbonio-message-dispatcher-db/compare/v0.2.5...v0.3.0) (2026-05-05)
 
 ### Features
