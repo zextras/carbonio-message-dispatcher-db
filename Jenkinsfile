@@ -71,8 +71,13 @@ pipeline {
         stage('Build deb/rpm') {
             steps {
                 script {
-                    buildStage([
-                        buildFlags: '-ds',
+                    buildPackages([
+                        pkgbuildPath: 'package/PKGBUILD',
+                        buildStageConfig: [
+                            buildFlags: ' -ds ',
+                            rockySinglePkg: true,
+                            ubuntuSinglePkg: true
+                        ]
                     ])
                 }
             }
@@ -88,6 +93,8 @@ pipeline {
             steps {
                 uploadStage(
                     packages: yapHelper.resolvePackageNames(),
+                    rockySinglePkg: true,
+                    ubuntuSinglePkg: true
                 )
             }
         }
