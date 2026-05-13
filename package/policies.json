@@ -6,9 +6,6 @@
       },
       "carbonio-message-dispatcher/": {
         "policy": "read"
-      },
-      "carbonio-ws-collaboration/": {
-        "policy": "read"
       }
     }
   ],
