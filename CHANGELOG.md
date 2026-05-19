@@ -1,3 +1,9 @@
+## [0.4.0](https://github.com/zextras/carbonio-message-dispatcher-db/compare/v0.3.1...v0.4.0) (2026-05-19)
+
+### Features
+
+* **packaging:** use arch=('any') for architecture-independent package ([#56](https://github.com/zextras/carbonio-message-dispatcher-db/issues/56)) ([0d73101](https://github.com/zextras/carbonio-message-dispatcher-db/commit/0d731015f73ebaaff751d5e83aa5ec411a6d4451))
+
 ## [0.3.1](https://github.com/zextras/carbonio-message-dispatcher-db/compare/v0.3.0...v0.3.1) (2026-05-06)
 
 ### Bug Fixes
