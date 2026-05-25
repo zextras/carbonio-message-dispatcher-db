@@ -1,3 +1,10 @@
+## [0.4.1](https://github.com/zextras/carbonio-message-dispatcher-db/compare/v0.4.0...v0.4.1) (2026-05-25)
+
+### Bug Fixes
+
+* **deps:** add explicit service-discover-base dependency ([#59](https://github.com/zextras/carbonio-message-dispatcher-db/issues/59)) ([4fc9ea6](https://github.com/zextras/carbonio-message-dispatcher-db/commit/4fc9ea6ee575a0c6a4d60b7d832cc8fe7c66fcbc))
+* **sidecar:** increase startup timeout for RHEL8 compatibility ([#58](https://github.com/zextras/carbonio-message-dispatcher-db/issues/58)) ([7ffa825](https://github.com/zextras/carbonio-message-dispatcher-db/commit/7ffa8258d537bcbe036d9385bdc3f928702dddd6))
+
 ## [0.4.0](https://github.com/zextras/carbonio-message-dispatcher-db/compare/v0.3.1...v0.4.0) (2026-05-19)
 
 ### Features
