@@ -13,6 +13,7 @@ depends=(
   "jq"
   "pending-setups"
   "service-discover"
+  "service-discover-base"
 )
 backup=(
   "etc/zextras/service-discover/carbonio-message-dispatcher-db.hcl"
