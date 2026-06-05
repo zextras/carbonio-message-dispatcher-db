@@ -26,5 +26,4 @@ dt3_pipeline(
         description: 'Envoy Sidecar for Carbonio Message Dispatcher DB',
     ]],
     reuse: [projectType: 'CE'],
-    gitleaks: true,
 )
