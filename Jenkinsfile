@@ -14,10 +14,7 @@ library(
 dt3_pipeline(
     repoName: 'carbonio-message-dispatcher-db',
     packaging: [
-        pkgbuildPath: 'package/PKGBUILD',
         buildFlags: '-ds',
-        rockySinglePkg: true,
-        ubuntuSinglePkg: true,
     ],
     docker: [[
         dockerfile: 'docker/sidecar/Dockerfile',
