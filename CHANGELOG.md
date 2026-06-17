@@ -1,3 +1,9 @@
+## [0.4.3](https://github.com/zextras/carbonio-message-dispatcher-db/compare/v0.4.2...v0.4.3) (2026-06-08)
+
+### Bug Fixes
+
+* **ci:** build packages for all distros ([#61](https://github.com/zextras/carbonio-message-dispatcher-db/issues/61)) ([f841319](https://github.com/zextras/carbonio-message-dispatcher-db/commit/f8413195d121b42de40b8d859ec7e0ae2a3d1d6d))
+
 ## [0.4.2](https://github.com/zextras/carbonio-message-dispatcher-db/compare/v0.4.1...v0.4.2) (2026-05-26)
 
 ## [0.4.1](https://github.com/zextras/carbonio-message-dispatcher-db/compare/v0.4.0...v0.4.1) (2026-05-25)
