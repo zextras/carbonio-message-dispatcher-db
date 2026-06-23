@@ -1,3 +1,9 @@
+## [0.5.0](https://github.com/zextras/carbonio-message-dispatcher-db/compare/v0.4.4...v0.5.0) (2026-06-23)
+
+### Features
+
+* migrate to dt3-pipeline ([#54](https://github.com/zextras/carbonio-message-dispatcher-db/issues/54)) ([05168b9](https://github.com/zextras/carbonio-message-dispatcher-db/commit/05168b93c73bd9bdf4e80e1cc7ca6d2884e21138))
+
 ## [0.4.3](https://github.com/zextras/carbonio-message-dispatcher-db/compare/v0.4.2...v0.4.3) (2026-06-08)
 
 ### Bug Fixes
