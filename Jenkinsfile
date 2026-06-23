@@ -3,7 +3,7 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 
 library(
-    identifier: 'jenkins-lib-common@dt3-migration',
+    identifier: 'jenkins-lib-common@dt3-pipeline',
     retriever: modernSCM([
         $class: 'GitSCMSource',
         credentialsId: 'jenkins-integration-with-github-account',
@@ -14,7 +14,6 @@ library(
 dt3_pipeline(
     repoName: 'carbonio-message-dispatcher-db',
     packaging: [
-        pkgbuildPath: 'package/PKGBUILD',
         buildFlags: '-ds',
         rockySinglePkg: false,
         ubuntuSinglePkg: false,
@@ -25,4 +24,5 @@ dt3_pipeline(
         title: 'Carbonio Message Dispatcher DB Sidecar',
         description: 'Envoy Sidecar for Carbonio Message Dispatcher DB',
     ]],
+    reuse: [projectType: 'CE'],
 )
