@@ -21,6 +21,7 @@ dt3_pipeline(
     docker: [[
         dockerfile: 'docker/sidecar/Dockerfile',
         imageName: 'carbonio-message-dispatcher-db-sidecar',
+        platforms: ['linux/amd64', 'linux/arm64'] as Set,
         title: 'Carbonio Message Dispatcher DB Sidecar',
         description: 'Envoy Sidecar for Carbonio Message Dispatcher DB',
     ]],
