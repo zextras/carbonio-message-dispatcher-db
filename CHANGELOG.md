@@ -1,3 +1,5 @@
+## [0.6.0](https://github.com/zextras/carbonio-message-dispatcher-db/compare/v0.5.6...v0.6.0) (2026-08-06)
+
 ## [0.5.6](https://github.com/zextras/carbonio-message-dispatcher-db/compare/v0.5.5...v0.5.6) (2026-08-06)
 
 ## [0.5.5](https://github.com/zextras/carbonio-message-dispatcher-db/compare/v0.5.4...v0.5.5) (2026-08-04)
