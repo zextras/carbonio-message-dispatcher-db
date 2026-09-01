@@ -1,3 +1,9 @@
+## [0.6.10](https://github.com/zextras/carbonio-message-dispatcher-db/compare/v0.6.9...v0.6.10) (2026-09-01)
+
+### Bug Fixes
+
+* **release:** update semantic-release branch to main ([#83](https://github.com/zextras/carbonio-message-dispatcher-db/issues/83)) ([2029509](https://github.com/zextras/carbonio-message-dispatcher-db/commit/2029509ab5fb5fe6598c1af8b1049ff670025506))
+
 ## [0.6.9](https://github.com/zextras/carbonio-message-dispatcher-db/compare/v0.6.8...v0.6.9) (2026-08-29)
 
 ## [0.6.8](https://github.com/zextras/carbonio-message-dispatcher-db/compare/v0.6.7...v0.6.8) (2026-08-26)
