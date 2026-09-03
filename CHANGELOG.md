@@ -1,3 +1,5 @@
+## [0.6.11](https://github.com/zextras/carbonio-message-dispatcher-db/compare/v0.6.10...v0.6.11) (2026-09-03)
+
 ## [0.6.10](https://github.com/zextras/carbonio-message-dispatcher-db/compare/v0.6.9...v0.6.10) (2026-09-01)
 
 ### Bug Fixes
