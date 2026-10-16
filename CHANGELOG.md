@@ -1,3 +1,9 @@
+## [0.6.18](https://github.com/zextras/carbonio-message-dispatcher-db/compare/v0.6.17...v0.6.18) (2026-10-16)
+
+### Bug Fixes
+
+* **ci:** replace mapfile in checksum-verify for macOS bash 3.2 ([#91](https://github.com/zextras/carbonio-message-dispatcher-db/issues/91)) ([256fbec](https://github.com/zextras/carbonio-message-dispatcher-db/commit/256fbec20dcd57339eefa43bc0d1e1e8422f3476)), closes [jenkins-lib-common#216](https://github.com/zextras/jenkins-lib-common/issues/216)
+
 ## [0.6.17](https://github.com/zextras/carbonio-message-dispatcher-db/compare/v0.6.16...v0.6.17) (2026-09-16)
 
 ## [0.6.16](https://github.com/zextras/carbonio-message-dispatcher-db/compare/v0.6.15...v0.6.16) (2026-09-11)
