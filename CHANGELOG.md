@@ -1,3 +1,10 @@
+## [0.6.21](https://github.com/zextras/carbonio-message-dispatcher-db/compare/v0.6.20...v0.6.21) (2026-11-13)
+
+### Bug Fixes
+
+* **docker:** create sidecar system users - CO-3612 ([#95](https://github.com/zextras/carbonio-message-dispatcher-db/issues/95)) ([f391256](https://github.com/zextras/carbonio-message-dispatcher-db/commit/f391256fa928402fe9d42757cd21bc94a1ac36bf))
+* fail the bootstrap when Consul KV can't be written (CO-4748) ([#97](https://github.com/zextras/carbonio-message-dispatcher-db/issues/97)) ([3b76de6](https://github.com/zextras/carbonio-message-dispatcher-db/commit/3b76de617ad58754a0648c5bdee48176c15d7fc8))
+
 ## [0.6.20](https://github.com/zextras/carbonio-message-dispatcher-db/compare/v0.6.19...v0.6.20) (2026-11-04)
 
 ## [0.6.19](https://github.com/zextras/carbonio-message-dispatcher-db/compare/v0.6.18...v0.6.19) (2026-10-29)
