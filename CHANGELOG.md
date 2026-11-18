@@ -1,3 +1,9 @@
+## [0.6.24](https://github.com/zextras/carbonio-message-dispatcher-db/compare/v0.6.23...v0.6.24) (2026-11-18)
+
+### Bug Fixes
+
+* [CO-4798] skip the message-dispatcher-db sidecar until its token exists ([#99](https://github.com/zextras/carbonio-message-dispatcher-db/issues/99)) ([fdfb42b](https://github.com/zextras/carbonio-message-dispatcher-db/commit/fdfb42b0b6a1af779da783b5dcb530b44bc49bde))
+
 ## [0.6.23](https://github.com/zextras/carbonio-message-dispatcher-db/compare/v0.6.22...v0.6.23) (2026-11-17)
 
 ## [0.6.22](https://github.com/zextras/carbonio-message-dispatcher-db/compare/v0.6.21...v0.6.22) (2026-11-14)
