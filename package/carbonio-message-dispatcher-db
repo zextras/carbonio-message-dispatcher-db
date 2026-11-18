@@ -61,5 +61,7 @@ consul reload
 # Limit token visibility as much as possible
 export -n CONSUL_HTTP_TOKEN
 
+# Clear a start limit hit while the token or the registration was missing
+systemctl reset-failed carbonio-message-dispatcher-db-sidecar.service || true
 systemctl restart carbonio-message-dispatcher-db-sidecar.service
 trap - exit
