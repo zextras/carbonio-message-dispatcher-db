@@ -15,9 +15,6 @@ depends=(
   "service-discover"
   "service-discover-base"
 )
-backup=(
-  "etc/zextras/service-discover/carbonio-message-dispatcher-db.hcl"
-)
 source=(
   "111-carbonio-message-dispatcher-db-setup.sh"
   "carbonio-message-dispatcher-db"
