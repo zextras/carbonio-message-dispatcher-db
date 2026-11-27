@@ -83,26 +83,10 @@ postinst() {
     systemctl enable carbonio-message-dispatcher-db-sidecar.service >/dev/null 2>&1 || :
   fi
 
-  if [ "$1" = "configure" ]; then
-    env -i PATH=/usr/bin:/bin bash -c 'set -a; [ -r "$1" ] && . "$1"; exec consul-template -once -template "$2:$3"' _ \
-      /etc/zextras/service-discover/carbonio-message-dispatcher-db.env \
-      /etc/zextras/service-discover/templates/carbonio-message-dispatcher-db-template.hcl \
-      /etc/zextras/service-discover/carbonio-message-dispatcher-db.hcl > /dev/null \
-      || echo "WARNING: cannot render /etc/zextras/service-discover/carbonio-message-dispatcher-db.hcl, run carbonio-message-dispatcher-db setup"
-  fi
-
   echo "======================================================"
   echo "Carbonio Message Dispatcher DB installed successfully!"
   echo "You must run pending-setups to configure it correctly."
   echo "======================================================"
-}
-
-posttrans() {
-  env -i PATH=/usr/bin:/bin bash -c 'set -a; [ -r "$1" ] && . "$1"; exec consul-template -once -template "$2:$3"' _ \
-    /etc/zextras/service-discover/carbonio-message-dispatcher-db.env \
-    /etc/zextras/service-discover/templates/carbonio-message-dispatcher-db-template.hcl \
-    /etc/zextras/service-discover/carbonio-message-dispatcher-db.hcl > /dev/null \
-    || echo "WARNING: cannot render /etc/zextras/service-discover/carbonio-message-dispatcher-db.hcl, run carbonio-message-dispatcher-db setup"
 }
 
 prerm() {
