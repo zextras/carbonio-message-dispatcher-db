@@ -20,7 +20,6 @@ source=(
   "111-carbonio-message-dispatcher-db-setup.sh"
   "carbonio-message-dispatcher-db"
   "carbonio-message-dispatcher-db-template.hcl"
-  "carbonio-message-dispatcher-db-hcl"
   "carbonio-message-dispatcher-db-bootstrap"
   "carbonio-message-dispatcher-db-sidecar.service"
   "carbonio-message-dispatcher-db-sidecar-legacy.service"
@@ -30,9 +29,8 @@ source=(
 )
 sha256sums=(
   '7e98690fac4cc9afe3f5e88fbc1c5a232a4b03cd6d7367fc9d71eec828191108'
-  'caf9920845d24ea53233585e9f6137f739fb30da8df1517e380589a76c984869'
-  '40259a7da16edf38fa0a0ee2d75115c3976263d63d9704a0a75a950ac46e1305'
-  '377c082a20af89622e9375f665648f46bbc9126849d324f40791a5ff10267ecb'
+  'ccb014647cc89c6ecc14d602801b2a4a0e10d6f849b578f0043168cf2d406640'
+  'd648d7e88420b7ef9054519ca70fab6d940b7daa576f2e9338a43fac895b1c71'
   '8b02311d4a2cf703b97ad099893fd66d76d0d0c187d3ab545226727a8fdd405a'
   '99732037f7aad0be4b161eba7b37eccafe5e6101680f8f352aaa7e3b4e0ac95d'
   '1ee367754941faede398cc9c4573a4cf13c63311b5b9844a09a3004f3b337d4c'
@@ -48,8 +46,6 @@ _package_common() {
     "${pkgdir}/usr/bin/carbonio-message-dispatcher-db"
   install -Dm644 "${srcdir}/carbonio-message-dispatcher-db-template.hcl" \
     "${pkgdir}/etc/zextras/service-discover/templates/carbonio-message-dispatcher-db-template.hcl"
-  install -Dm755 "${srcdir}/carbonio-message-dispatcher-db-hcl" \
-    "${pkgdir}/usr/bin/carbonio-message-dispatcher-db-hcl"
   install -Dm755 "${srcdir}/carbonio-message-dispatcher-db-bootstrap" \
     "${pkgdir}/usr/bin/carbonio-message-dispatcher-db-bootstrap"
   install -Dm644 "${srcdir}/intentions.json" \
@@ -88,7 +84,11 @@ postinst() {
   fi
 
   if [ "$1" = "configure" ]; then
-    carbonio-message-dispatcher-db-hcl render || echo "WARNING: hcl render failed, run carbonio-message-dispatcher-db setup"
+    env -i PATH=/usr/bin:/bin bash -c 'set -a; [ -r "$1" ] && . "$1"; exec consul-template -once -template "$2:$3"' _ \
+      /etc/zextras/service-discover/carbonio-message-dispatcher-db.env \
+      /etc/zextras/service-discover/templates/carbonio-message-dispatcher-db-template.hcl \
+      /etc/zextras/service-discover/carbonio-message-dispatcher-db.hcl > /dev/null \
+      || echo "WARNING: cannot render /etc/zextras/service-discover/carbonio-message-dispatcher-db.hcl, run carbonio-message-dispatcher-db setup"
   fi
 
   echo "======================================================"
@@ -98,7 +98,11 @@ postinst() {
 }
 
 posttrans() {
-  carbonio-message-dispatcher-db-hcl render || echo "WARNING: hcl render failed, run carbonio-message-dispatcher-db setup"
+  env -i PATH=/usr/bin:/bin bash -c 'set -a; [ -r "$1" ] && . "$1"; exec consul-template -once -template "$2:$3"' _ \
+    /etc/zextras/service-discover/carbonio-message-dispatcher-db.env \
+    /etc/zextras/service-discover/templates/carbonio-message-dispatcher-db-template.hcl \
+    /etc/zextras/service-discover/carbonio-message-dispatcher-db.hcl > /dev/null \
+    || echo "WARNING: cannot render /etc/zextras/service-discover/carbonio-message-dispatcher-db.hcl, run carbonio-message-dispatcher-db setup"
 }
 
 prerm() {

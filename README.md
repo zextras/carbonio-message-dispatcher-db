@@ -55,8 +55,7 @@ DB_ADDRESS=<remote address>
 ```
 
 The service-discover hcl is generated from a packaged template on every upgrade
-and setup, so do not edit it by hand (`carbonio-message-dispatcher-db-hcl show`
-lists the keys and defaults). To finalize the configuration:
+and setup, so do not edit it by hand (the setup prints the keys and defaults). To finalize the configuration:
 
 - Execute `pending-setups` in order to register the service in
   the `service-discover`
