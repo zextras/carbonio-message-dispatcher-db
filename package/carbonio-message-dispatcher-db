@@ -15,7 +15,6 @@ if [[ "$1" != "setup" ]]; then
 fi
 
 if command -v carbonio-message-dispatcher-db-hcl > /dev/null; then
-  carbonio-message-dispatcher-db-hcl migrate || :
   if ! carbonio-message-dispatcher-db-hcl render; then
     echo "Cannot render /etc/zextras/service-discover/carbonio-message-dispatcher-db.hcl; leaving pending-setup to be retried."
     exit 1
