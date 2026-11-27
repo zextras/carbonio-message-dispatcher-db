@@ -47,12 +47,15 @@ sudo yum install carbonio-message-dispatcher-db
 
 ### Configuration
 
-In order to make it work with external databases the
-`carbonio-message-dispatcher-db.hcl`
-**MUST** be manually
-updated by changing the address from `127.0.0.1` to the remote address. To
-finalize the
-configuration:
+In order to make it work with external databases, set the remote address in
+`/etc/zextras/service-discover/carbonio-message-dispatcher-db.env`:
+
+```bash
+DB_ADDRESS=<remote address>
+```
+
+The service-discover hcl is generated from a packaged template on every upgrade
+and setup, so do not edit it by hand (the setup prints the keys and defaults). To finalize the configuration:
 
 - Execute `pending-setups` in order to register the service in
   the `service-discover`
