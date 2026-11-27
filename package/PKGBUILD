@@ -14,11 +14,13 @@ depends=(
   "pending-setups"
   "service-discover"
   "service-discover-base"
+  "service-discover-template"
 )
 source=(
   "111-carbonio-message-dispatcher-db-setup.sh"
   "carbonio-message-dispatcher-db"
-  "carbonio-message-dispatcher-db.hcl"
+  "carbonio-message-dispatcher-db-template.hcl"
+  "carbonio-message-dispatcher-db-hcl"
   "carbonio-message-dispatcher-db-bootstrap"
   "carbonio-message-dispatcher-db-sidecar.service"
   "carbonio-message-dispatcher-db-sidecar-legacy.service"
@@ -28,8 +30,9 @@ source=(
 )
 sha256sums=(
   '7e98690fac4cc9afe3f5e88fbc1c5a232a4b03cd6d7367fc9d71eec828191108'
-  '7fb26ac4b035aee0d88fe91d413f8fcbdad381b6d5623a31b2976b7b677a6c50'
-  '02001909736e6a085fcf55af878122c13cd1d921beb1533ace72e863f49fdf15'
+  '359942a14ec61ea3b83ae4e7d5d0ebd15154f2b3843baad3c19f38df523f352e'
+  'aa0139d34ba77fc2506209eedb24e8711c5780c4cb2408aaaab407661c09a40c'
+  '8fac3c2f24e715802c1412e008e916fd56ea6caa55ef63bd4d5a768bde4ad2cb'
   '8b02311d4a2cf703b97ad099893fd66d76d0d0c187d3ab545226727a8fdd405a'
   '99732037f7aad0be4b161eba7b37eccafe5e6101680f8f352aaa7e3b4e0ac95d'
   '1ee367754941faede398cc9c4573a4cf13c63311b5b9844a09a3004f3b337d4c'
@@ -43,8 +46,10 @@ _package_common() {
     "${pkgdir}/etc/zextras/pending-setups.d/111-carbonio-message-dispatcher-db-setup.sh"
   install -Dm755 "${srcdir}/carbonio-message-dispatcher-db" \
     "${pkgdir}/usr/bin/carbonio-message-dispatcher-db"
-  install -Dm644 "${srcdir}/carbonio-message-dispatcher-db.hcl" \
-    "${pkgdir}/etc/zextras/service-discover/carbonio-message-dispatcher-db.hcl"
+  install -Dm644 "${srcdir}/carbonio-message-dispatcher-db-template.hcl" \
+    "${pkgdir}/etc/zextras/service-discover/templates/carbonio-message-dispatcher-db-template.hcl"
+  install -Dm755 "${srcdir}/carbonio-message-dispatcher-db-hcl" \
+    "${pkgdir}/usr/bin/carbonio-message-dispatcher-db-hcl"
   install -Dm755 "${srcdir}/carbonio-message-dispatcher-db-bootstrap" \
     "${pkgdir}/usr/bin/carbonio-message-dispatcher-db-bootstrap"
   install -Dm644 "${srcdir}/intentions.json" \
@@ -82,10 +87,20 @@ postinst() {
     systemctl enable carbonio-message-dispatcher-db-sidecar.service >/dev/null 2>&1 || :
   fi
 
+  if [ "$1" = "configure" ]; then
+    carbonio-message-dispatcher-db-hcl migrate || :
+    carbonio-message-dispatcher-db-hcl render || echo "WARNING: hcl render failed, run carbonio-message-dispatcher-db setup"
+  fi
+
   echo "======================================================"
   echo "Carbonio Message Dispatcher DB installed successfully!"
   echo "You must run pending-setups to configure it correctly."
   echo "======================================================"
+}
+
+posttrans() {
+  carbonio-message-dispatcher-db-hcl migrate || :
+  carbonio-message-dispatcher-db-hcl render || echo "WARNING: hcl render failed, run carbonio-message-dispatcher-db setup"
 }
 
 prerm() {
@@ -97,6 +112,10 @@ prerm() {
 
 postrm() {
   rm -f /etc/carbonio/message-dispatcher-db/service-discover/token
+  rm -f /etc/zextras/service-discover/carbonio-message-dispatcher-db.hcl
+  if [ "$1" = "purge" ]; then
+    rm -f /etc/zextras/service-discover/carbonio-message-dispatcher-db.env /etc/zextras/service-discover/carbonio-message-dispatcher-db.hcl.bak
+  fi
   if [ -d /run/systemd/system ]; then
     systemctl daemon-reload >/dev/null 2>&1 || :
   fi
