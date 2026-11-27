@@ -32,7 +32,7 @@ sha256sums=(
   '7e98690fac4cc9afe3f5e88fbc1c5a232a4b03cd6d7367fc9d71eec828191108'
   'caf9920845d24ea53233585e9f6137f739fb30da8df1517e380589a76c984869'
   '40259a7da16edf38fa0a0ee2d75115c3976263d63d9704a0a75a950ac46e1305'
-  'fb7d58e8eb28a959ee8e0f675290e6d76a5fae0ef77b8b60439f60a719885c81'
+  '377c082a20af89622e9375f665648f46bbc9126849d324f40791a5ff10267ecb'
   '8b02311d4a2cf703b97ad099893fd66d76d0d0c187d3ab545226727a8fdd405a'
   '99732037f7aad0be4b161eba7b37eccafe5e6101680f8f352aaa7e3b4e0ac95d'
   '1ee367754941faede398cc9c4573a4cf13c63311b5b9844a09a3004f3b337d4c'
@@ -112,7 +112,7 @@ postrm() {
   rm -f /etc/carbonio/message-dispatcher-db/service-discover/token
   rm -f /etc/zextras/service-discover/carbonio-message-dispatcher-db.hcl
   if [ "$1" = "purge" ]; then
-    rm -f /etc/zextras/service-discover/carbonio-message-dispatcher-db.env /etc/zextras/service-discover/carbonio-message-dispatcher-db.hcl.bak
+    rm -f /etc/zextras/service-discover/carbonio-message-dispatcher-db.env
   fi
   if [ -d /run/systemd/system ]; then
     systemctl daemon-reload >/dev/null 2>&1 || :
